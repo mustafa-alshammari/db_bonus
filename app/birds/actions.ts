@@ -21,6 +21,33 @@ export async function addBird(formData: FormData) {
   revalidatePath('/birds');
 }
 
+export async function updateBird(modifiedData: FormData)
+{
+  const sql = `
+    UPDATE Birds
+    SET FLOCK_SIZE=:1
+    WHERE ANIMAL_ID=:7     
+  `
+
+  const getVal = (key: string) => {
+    const val = modifiedData.get(key);
+    return val === '' ? null : val;
+  };
+
+  const binds = [
+    getVal('FLOCK_SIZE'),
+    getVal('ANIMAL_ID')
+  ];
+
+  try {
+    await executeDML(sql, binds);
+    revalidatePath('/birds');
+  } catch (error) {
+    console.error("Database Update Error:", error);
+    throw new Error("Failed to update database");
+  }
+}
+
 export async function deleteBird(animalId: string) {
   const sql = `DELETE FROM Birds WHERE Animal_ID = :1`;
   await executeDML(sql, [animalId]);

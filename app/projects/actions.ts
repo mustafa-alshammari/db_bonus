@@ -15,6 +15,43 @@ export async function getProjects(searchTerm = '') {
   return await executeDML(sql, binds);
 }
 
+export async function updateProjects(modifiedData: FormData)
+{
+  const sql = 
+  `
+    UPDATE Projects
+    SET Project_name=:1,
+        Funding_source=:2,
+        Deadline=TO_DATE(:3, 'YYYY-MM-DD'),
+        Start_date=TO_DATE(:4, 'YYYY-MM-DD'),
+        Managed_by=:5
+    WHERE PROJECT_ID=:6
+  `
+
+  const getVal = (key: string) => {
+    const val = modifiedData.get(key);
+    return val === '' ? null : val;
+  };
+
+  const binds = [ 
+    getVal('PROJECT_NAME'),
+    getVal('FUNDING_SOURCE'),
+    getVal('DEADLINE'),
+    getVal('START_DATE'),
+    getVal('MANAGED_BY'),
+    getVal('PROJECT_ID')
+  ];
+
+  try {
+    await executeDML(sql, binds);
+    revalidatePath('/projects');
+  } catch (error) {
+    console.error("Database Update Error:", error);
+    throw new Error("Failed to update database");
+  }
+}
+
+
 export async function addProject(formData: FormData) {
   const sql = `
     INSERT INTO Projects (Project_ID, Project_name, Funding_source, Deadline, Start_date, Managed_by) 

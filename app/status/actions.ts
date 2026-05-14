@@ -21,6 +21,35 @@ export async function addStatus(formData: FormData) {
   revalidatePath('/status');
 }
 
+export async function updateStatus(modifiedData: FormData)
+{
+  const sql = `
+    UPDATE Status
+    SET COUNT=:1,
+        DESCRIPTION=:2
+    WHERE ANIMAL_ID=:3
+  `
+
+  const getVal = (key: string) => {
+    const val = modifiedData.get(key);
+    return val === '' ? null : val;
+  };
+
+  const binds = [
+    getVal('COUNT'), 
+    getVal('DESCRIPTION'),
+    getVal('ANIMAL_ID')
+  ];
+
+  try {
+    await executeDML(sql, binds);
+    revalidatePath('/status');
+  } catch (error) {
+    console.error("Database Update Error:", error);
+    throw new Error("Failed to update database");
+  }
+}
+
 export async function deleteStatus(animalId: string) {
   const sql = `DELETE FROM Status WHERE Animal_ID = :1`;
   await executeDML(sql, [animalId]);

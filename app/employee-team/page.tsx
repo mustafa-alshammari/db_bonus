@@ -1,6 +1,7 @@
-import { getEmployeeTeams, addEmployeeTeam, deleteEmployeeTeam, getTableMetadata } from './actions';
+import { getEmployeeTeams, addEmployeeTeam, deleteEmployeeTeam, getTableMetadata, updateEmployee_part_of_team } from './actions';
 import Search from '@/components/Search';
 import AddEntry from '@/components/AddEntry';
+import ModifyEntry from '@/components/ModifyEntry';
 
 export default async function EmployeeTeamScreen({ searchParams }: any) {
   const params = await searchParams;
@@ -30,6 +31,7 @@ export default async function EmployeeTeamScreen({ searchParams }: any) {
                 <form action={deleteEmployeeTeam.bind(null, assignment.TEAM_ID, assignment.SSN)}>
                    <button type="submit" className="bg-red-500 text-white px-2 py-1 text-sm rounded">Delete</button>
                 </form>
+                <ModifyEntry columns={tableColumns} rowData={assignment} updateAction={updateEmployee_part_of_team} />
               </td>
             </tr>
           ))}

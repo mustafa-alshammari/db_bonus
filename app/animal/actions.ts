@@ -14,6 +14,41 @@ export async function getAnimals(searchTerm = '') {
   return await executeDML(sql, binds);
 }
 
+export async function updateAnimal(modifiedData: FormData)
+{
+  const sql = `
+    UPDATE Animal
+    SET Age=:1,
+        Gender=:2,
+        Animal_type=:3,
+        Species=:4,
+        Diet=:5
+    WHERE Animal_ID=:6     
+  `
+
+  const getVal = (key: string) => {
+    const val = modifiedData.get(key);
+    return val === '' ? null : val;
+  };
+
+  const binds = [
+    getVal('AGE'), 
+    getVal('GENDER'),
+    getVal('ANIMAL_TYPE'), 
+    getVal('SPECIES'), 
+    getVal('DIET'),
+    getVal('ANIMAL_ID')
+  ];
+
+  try {
+    await executeDML(sql, binds);
+    revalidatePath('/animal');
+  } catch (error) {
+    console.error("Database Update Error:", error);
+    throw new Error("Failed to update database");
+  }
+}
+
 export async function addAnimal(formData: FormData) {
   const sql = `INSERT INTO Animal (Animal_ID, Age, Gender, Animal_Type, Species, Diet) VALUES (:1, :2, :3, :4, :5, :6)`;
   const binds = [formData.get('ANIMAL_ID'), formData.get('AGE'), formData.get('GENDER'), formData.get('ANIMAL_TYPE'), formData.get('SPECIES'), formData.get('DIET')];

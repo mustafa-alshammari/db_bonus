@@ -1,0 +1,67 @@
+"filename", "language", "JavaScript", "XML", "Markdown", "TypeScript JSX", "JSON with Comments", "JSON", "TypeScript", "PostCSS", "comment", "blank", "total"
+"g:\PSUT\db bonus final\db_bonus\README.md", "Markdown", 0, 0, 23, 0, 0, 0, 0, 0, 0, 14, 37
+"g:\PSUT\db bonus final\db_bonus\app\analysis-equipment\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\analysis-equipment\paget.tsx", "TypeScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 0, 3, 41
+"g:\PSUT\db bonus final\db_bonus\app\analysis\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\analysis\page.tsx", "TypeScript JSX", 0, 0, 0, 36, 0, 0, 0, 0, 0, 3, 39
+"g:\PSUT\db bonus final\db_bonus\app\animal\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\animal\page.tsx", "TypeScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 0, 2, 40
+"g:\PSUT\db bonus final\db_bonus\app\aquatic\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\aquatic\page.tsx", "TypeScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 0, 3, 41
+"g:\PSUT\db bonus final\db_bonus\app\birds\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\birds\page.tsx", "TypeScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 0, 3, 41
+"g:\PSUT\db bonus final\db_bonus\app\camps\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 35, 0, 0, 8, 43
+"g:\PSUT\db bonus final\db_bonus\app\camps\page.tsx", "TypeScript JSX", 0, 0, 0, 44, 0, 0, 0, 0, 0, 3, 47
+"g:\PSUT\db bonus final\db_bonus\app\employee-team\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 1, 5, 35
+"g:\PSUT\db bonus final\db_bonus\app\employee-team\page.tsx", "TypeScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 0, 2, 40
+"g:\PSUT\db bonus final\db_bonus\app\employee\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 50, 0, 0, 11, 61
+"g:\PSUT\db bonus final\db_bonus\app\employee\page.tsx", "TypeScript JSX", 0, 0, 0, 47, 0, 0, 0, 0, 0, 6, 53
+"g:\PSUT\db bonus final\db_bonus\app\globals.css", "PostCSS", 0, 0, 0, 0, 0, 0, 0, 22, 0, 5, 27
+"g:\PSUT\db bonus final\db_bonus\app\health-status\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\health-status\page.tsx", "TypeScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 0, 3, 41
+"g:\PSUT\db bonus final\db_bonus\app\inhabit\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 35, 0, 1, 6, 42
+"g:\PSUT\db bonus final\db_bonus\app\inhabit\page.tsx", "TypeScript JSX", 0, 0, 0, 42, 0, 0, 0, 0, 0, 3, 45
+"g:\PSUT\db bonus final\db_bonus\app\insect\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\insect\page.tsx", "TypeScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 0, 3, 41
+"g:\PSUT\db bonus final\db_bonus\app\land\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\land\page.tsx", "TypeScript JSX", 0, 0, 0, 36, 0, 0, 0, 0, 0, 3, 39
+"g:\PSUT\db bonus final\db_bonus\app\layout.tsx", "TypeScript JSX", 0, 0, 0, 21, 0, 0, 0, 0, 0, 5, 26
+"g:\PSUT\db bonus final\db_bonus\app\page.tsx", "TypeScript JSX", 0, 0, 0, 45, 0, 0, 0, 0, 1, 9, 55
+"g:\PSUT\db bonus final\db_bonus\app\phone-number\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\phone-number\page.tsx", "TypeScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 0, 3, 41
+"g:\PSUT\db bonus final\db_bonus\app\projects\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 35, 0, 0, 8, 43
+"g:\PSUT\db bonus final\db_bonus\app\projects\page.tsx", "TypeScript JSX", 0, 0, 0, 46, 0, 0, 0, 0, 0, 5, 51
+"g:\PSUT\db bonus final\db_bonus\app\research-category\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\research-category\page.tsx", "TypeScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 0, 3, 41
+"g:\PSUT\db bonus final\db_bonus\app\research-team\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\research-team\page.tsx", "TypeScript JSX", 0, 0, 0, 36, 0, 0, 0, 0, 0, 2, 38
+"g:\PSUT\db bonus final\db_bonus\app\safety-roles\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\safety-roles\page.tsx", "TypeScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 0, 3, 41
+"g:\PSUT\db bonus final\db_bonus\app\safety-team\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\safety-team\page.tsx", "TypeScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 0, 3, 41
+"g:\PSUT\db bonus final\db_bonus\app\status\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\status\page.tsx", "TypeScript JSX", 0, 0, 0, 40, 0, 0, 0, 0, 0, 3, 43
+"g:\PSUT\db bonus final\db_bonus\app\team-camp\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\team-camp\page.tsx", "TypeScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 0, 3, 41
+"g:\PSUT\db bonus final\db_bonus\app\team-phone\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\team-phone\page.tsx", "TypeScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 0, 3, 41
+"g:\PSUT\db bonus final\db_bonus\app\team-studies-animal\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 29, 0, 0, 5, 34
+"g:\PSUT\db bonus final\db_bonus\app\team-studies-animal\page.tsx", "TypeScript JSX", 0, 0, 0, 38, 0, 0, 0, 0, 0, 3, 41
+"g:\PSUT\db bonus final\db_bonus\app\team\actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 62, 0, 0, 16, 78
+"g:\PSUT\db bonus final\db_bonus\app\team\page.tsx", "TypeScript JSX", 0, 0, 0, 37, 0, 0, 0, 0, 0, 6, 43
+"g:\PSUT\db bonus final\db_bonus\components\AddEntry.tsx", "TypeScript JSX", 0, 0, 0, 55, 0, 0, 0, 0, 0, 8, 63
+"g:\PSUT\db bonus final\db_bonus\components\Search.tsx", "TypeScript JSX", 0, 0, 0, 32, 0, 0, 0, 0, 0, 5, 37
+"g:\PSUT\db bonus final\db_bonus\components\TeamRow.tsx", "TypeScript JSX", 0, 0, 0, 64, 0, 0, 0, 0, 3, 9, 76
+"g:\PSUT\db bonus final\db_bonus\eslint.config.mjs", "JavaScript", 14, 0, 0, 0, 0, 0, 0, 0, 2, 3, 19
+"g:\PSUT\db bonus final\db_bonus\lib\db.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 24, 0, 0, 4, 28
+"g:\PSUT\db bonus final\db_bonus\next.config.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 4, 0, 1, 3, 8
+"g:\PSUT\db bonus final\db_bonus\package-lock.json", "JSON", 0, 0, 0, 0, 0, 6715, 0, 0, 0, 1, 6716
+"g:\PSUT\db bonus final\db_bonus\package.json", "JSON", 0, 0, 0, 0, 0, 28, 0, 0, 0, 1, 29
+"g:\PSUT\db bonus final\db_bonus\postcss.config.mjs", "JavaScript", 6, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8
+"g:\PSUT\db bonus final\db_bonus\public\file.svg", "XML", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"g:\PSUT\db bonus final\db_bonus\public\globe.svg", "XML", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"g:\PSUT\db bonus final\db_bonus\public\next.svg", "XML", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"g:\PSUT\db bonus final\db_bonus\public\vercel.svg", "XML", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"g:\PSUT\db bonus final\db_bonus\public\window.svg", "XML", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"g:\PSUT\db bonus final\db_bonus\tsconfig.json", "JSON with Comments", 0, 0, 0, 0, 34, 0, 0, 0, 0, 1, 35
+"Total", "-", 20, 5, 23, 1113, 34, 6743, 767, 22, 9, 283, 9019

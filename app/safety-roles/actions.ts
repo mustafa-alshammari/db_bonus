@@ -21,6 +21,35 @@ export async function addSafetyRole(formData: FormData) {
   revalidatePath('/safety-roles');
 }
 
+export async function updateSafety_Roles(modifiedData: FormData)
+{
+  const sql = 
+  `
+    UPDATE Safety_Roles
+    SET Role=:1
+    WHERE Team_ID=:2 AND Role=:3     
+  `
+
+  const getVal = (key: string) => {
+    const val = modifiedData.get(key);
+    return val === '' ? null : val;
+  };
+
+  const binds = [ 
+    getVal('ROLE'), 
+    getVal('TEAM_ID'),
+    getVal('OLD_ROLE')
+  ];
+
+  try {
+    await executeDML(sql, binds);
+    revalidatePath('/safety-roles');
+  } catch (error) {
+    console.error("Database Update Error:", error);
+    throw new Error("Failed to update database");
+  }
+}
+
 export async function deleteSafetyRole(teamId: string, role: string) {
   const sql = `DELETE FROM Safety_roles WHERE Team_ID = :1 AND Role = :2`;
   await executeDML(sql, [teamId, role]);

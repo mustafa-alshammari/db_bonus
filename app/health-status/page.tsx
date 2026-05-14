@@ -1,6 +1,7 @@
-import { getHealthStatuses, addHealthStatus, deleteHealthStatus, getTableMetadata } from './actions';
+import { getHealthStatuses, addHealthStatus, deleteHealthStatus, getTableMetadata, updateHealthStatus } from './actions';
 import Search from '@/components/Search';
 import AddEntry from '@/components/AddEntry';
+import ModifyEntry from '@/components/ModifyEntry';
 
 export default async function HealthStatusScreen({ searchParams }: any) {
   const params = await searchParams;
@@ -31,6 +32,7 @@ export default async function HealthStatusScreen({ searchParams }: any) {
                 <form action={deleteHealthStatus.bind(null, item.ANIMAL_ID, item.STATUS)}>
                    <button type="submit" className="bg-red-500 text-white px-2 py-1 text-sm rounded hover:bg-red-600">Delete</button>
                 </form>
+                <ModifyEntry columns={tableColumns} rowData={item} updateAction={updateHealthStatus} />
               </td>
             </tr>
           ))}

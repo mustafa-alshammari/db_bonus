@@ -1,9 +1,10 @@
 'use client';
 
-import { fetchSubclassData } from '@/app/team/actions';
+import { fetchSubclassData, updateTeam } from '@/app/team/actions';
 import { useEffect, useState } from 'react';
+import ModifyEntry from './ModifyEntry';
 
-export default function TeamRow({ team, deleteAction }: { team: any, deleteAction: any }) {
+export default function TeamRow({ team, deleteAction, colData, updateAction }: { team: any, deleteAction: any, colData: any, updateAction: any }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [subclassData, setSubclassData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -21,8 +22,7 @@ export default function TeamRow({ team, deleteAction }: { team: any, deleteActio
       }
     }
     
-    // Toggle the row open/closed
-    setIsExpanded(!isExpanded);
+    setIsExpanded(prev => !prev);
   };
 
   return (
@@ -45,6 +45,8 @@ export default function TeamRow({ team, deleteAction }: { team: any, deleteActio
           <form action={deleteAction}>
             <button type="submit" className="bg-red-500 text-white px-2 py-1 text-sm rounded">Delete</button>
           </form>
+
+          <ModifyEntry columns={colData} rowData={team} updateAction={updateAction} />
         </td>
       </tr>
 

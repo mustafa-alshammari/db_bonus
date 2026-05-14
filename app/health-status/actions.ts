@@ -21,6 +21,37 @@ export async function addHealthStatus(formData: FormData) {
   revalidatePath('/health-status');
 }
 
+export async function updateHealthStatus(modifiedData: FormData)
+{
+  const sql = 
+  `
+    UPDATE Health_status
+    SET Status=:1
+    WHERE Animal_ID=:2 AND Status=:3  
+  `
+
+  const getVal = (key: string) => {
+    const val = modifiedData.get(key);
+    return val === '' ? null : val;
+  };
+
+  const binds = [ 
+    getVal('STATUS'), 
+    getVal('ANIMAL_ID'),
+    getVal('OLD_STATUS')
+  ];
+
+  try {
+    await executeDML(sql, binds);
+    revalidatePath('/health-status');
+  } catch (error) {
+    console.error("Database Update Error:", error);
+    throw new Error("Failed to update database");
+  }
+}
+
+
+
 export async function deleteHealthStatus(animalId: string, status: string) {
   const sql = `DELETE FROM Health_Status WHERE Animal_ID = :1 AND Status = :2`;
   await executeDML(sql, [animalId, status]);

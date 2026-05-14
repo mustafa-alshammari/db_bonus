@@ -1,6 +1,7 @@
-import { getInhabits, addInhabit, deleteInhabit, getTableMetadata } from './actions';
+import { getInhabits, addInhabit, deleteInhabit, getTableMetadata, updateInhabit } from './actions';
 import Search from '@/components/Search';
 import AddEntry from '@/components/AddEntry';
+import ModifyEntry from '@/components/ModifyEntry';
 
 export default async function InhabitScreen({ searchParams }: any) {
   const params = await searchParams;
@@ -35,6 +36,7 @@ export default async function InhabitScreen({ searchParams }: any) {
                 <form action={deleteInhabit.bind(null, item.CAMP_ID, item.ANIMAL_ID)}>
                    <button type="submit" className="bg-red-500 text-white px-2 py-1 text-sm rounded hover:bg-red-600">Delete</button>
                 </form>
+                <ModifyEntry columns={inhabitTableColumns} rowData={item} updateAction={updateInhabit} />
               </td>
             </tr>
           ))}

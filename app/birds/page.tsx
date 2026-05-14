@@ -1,6 +1,7 @@
-import { getBirds, addBird, deleteBird, getTableMetadata } from './actions';
+import { getBirds, addBird, deleteBird, getTableMetadata, updateBird } from './actions';
 import Search from '@/components/Search';
 import AddEntry from '@/components/AddEntry';
+import ModifyEntry from '@/components/ModifyEntry';
 
 export default async function BirdsScreen({ searchParams }: any) {
   const params = await searchParams;
@@ -31,6 +32,7 @@ export default async function BirdsScreen({ searchParams }: any) {
                 <form action={deleteBird.bind(null, item.ANIMAL_ID)}>
                    <button type="submit" className="bg-red-500 text-white px-2 py-1 text-sm rounded hover:bg-red-600">Delete</button>
                 </form>
+                <ModifyEntry columns={tableColumns} rowData={item} updateAction={updateBird} />
               </td>
             </tr>
           ))}

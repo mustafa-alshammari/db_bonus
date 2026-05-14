@@ -36,10 +36,37 @@ export async function deleteTeam(Team_ID: string) {
   revalidatePath('/team');
 }
 
-export async function updateTeamEmail(Team_ID: string, newEmail: number) {
-  const sql = `UPDATE Team SET Email = :1 WHERE Team_ID = :2`;
-  await executeDML(sql, [newEmail, Team_ID]);
-  revalidatePath('/team');
+export async function updateTeam(modifiedData: FormData)
+{
+  const sql = `
+    UPDATE Team
+    SET TEAM_TYPE=:1,
+        MEMBER_COUNT=:2,
+        EMAIL=:3,
+        NAME=:4
+    WHERE Team_ID=:5     
+  `
+
+  const getVal = (key: string) => {
+    const val = modifiedData.get(key);
+    return val === '' ? null : val;
+  };
+
+  const binds = [
+    getVal('TEAM_TYPE'), 
+    getVal('MEMBER_COUNT'),
+    getVal('EMAIL'), 
+    getVal('NAME'), 
+    getVal('TEAM_ID')
+  ];
+
+  try {
+    await executeDML(sql, binds);
+    revalidatePath('/team');
+  } catch (error) {
+    console.error("Database Update Error:", error);
+    throw new Error("Failed to update database");
+  }
 }
 
 export async function fetchSubclassData(Team_ID: string, Team_Type: string)

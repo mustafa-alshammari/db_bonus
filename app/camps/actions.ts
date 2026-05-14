@@ -30,6 +30,39 @@ export async function addCamp(formData: FormData) {
   revalidatePath('/camps');
 }
 
+export async function updateCamps(modifiedData: FormData)
+{
+  const sql = 
+  `
+    UPDATE Camps
+    SET Danger_level=:1,
+        Location=:2,
+        Climate=:3,
+        Biome_type=:4
+    WHERE Camp_ID=:5
+  `
+  const getVal = (key: string) => {
+    const val = modifiedData.get(key);
+    return val === '' ? null : val;
+  };
+
+  const binds = [ 
+    getVal('DANGER_LEVEL'),
+    getVal('LOCATION'),
+    getVal('CLIMATE'),
+    getVal('BIOME_TYPE'),
+    getVal('CAMP_ID')
+  ];
+
+  try {
+    await executeDML(sql, binds);
+    revalidatePath('/camps');
+  } catch (error) {
+    console.error("Database Update Error:", error);
+    throw new Error("Failed to update database");
+  }
+}
+
 export async function deleteCamp(id: string) {
   const sql = `DELETE FROM Camps WHERE Camp_ID = :1`;
   await executeDML(sql, [id]);

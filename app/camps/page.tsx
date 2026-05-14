@@ -1,6 +1,7 @@
-import { getCamps, addCamp, deleteCamp, getTableMetadata } from './actions';
+import { getCamps, addCamp, deleteCamp, getTableMetadata, updateCamps } from './actions';
 import Search from '@/components/Search';
 import AddEntry from '@/components/AddEntry';
+import ModifyEntry from '@/components/ModifyEntry';
 
 export default async function CampsScreen({ searchParams }: any) {
   const params = await searchParams;
@@ -37,6 +38,7 @@ export default async function CampsScreen({ searchParams }: any) {
                 <form action={deleteCamp.bind(null, camp.CAMP_ID)}>
                    <button type="submit" className="bg-red-500 text-white px-2 py-1 text-sm rounded hover:bg-red-600">Delete</button>
                 </form>
+                <ModifyEntry columns={campTableColumns} rowData={camp} updateAction={updateCamps} />
               </td>
             </tr>
           ))}

@@ -21,6 +21,34 @@ export async function addAquatic(formData: FormData) {
   revalidatePath('/aquatic');
 }
 
+export async function updateAquatic(modifiedData: FormData)
+{
+  const sql = 
+  `
+    UPDATE Aquatic
+    SET Depth=:1
+    WHERE Animal_ID=:2   
+  `
+
+  const getVal = (key: string) => {
+    const val = modifiedData.get(key);
+    return val === '' ? null : val;
+  };
+
+  const binds = [ 
+    getVal('DEPTH'), 
+    getVal('ANIMAL_ID')
+  ];
+
+  try {
+    await executeDML(sql, binds);
+    revalidatePath('/aquatic');
+  } catch (error) {
+    console.error("Database Update Error:", error);
+    throw new Error("Failed to update database");
+  }
+}
+
 export async function deleteAquatic(animalId: string) {
   const sql = `DELETE FROM Aquatic WHERE Animal_ID = :1`;
   await executeDML(sql, [animalId]);

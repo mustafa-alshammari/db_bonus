@@ -1,4 +1,4 @@
-import { addTeam, deleteTeam, getTableMetadata, getTeams } from './actions';
+import { addTeam, deleteTeam, getTableMetadata, getTeams, updateTeam } from './actions';
 import Search from '@/components/Search';
 import AddEntry from '@/components/AddEntry';
 import TeamRow from '@/components/TeamRow';
@@ -30,11 +30,13 @@ export default async function TeamScreen({ searchParams }: any) {
         </thead>
         <tbody>
           {teams.map((team: any) => (
-            <TeamRow
-              key={team.TEAM_ID}
-              team={team}
-              deleteAction={deleteTeam.bind(null, team.TEAM_ID)}
-            />
+              <TeamRow
+                key={team.TEAM_ID}
+                team={team}
+                deleteAction={deleteTeam.bind(null, team.TEAM_ID)}
+                updateAction={updateTeam}
+                colData={teamTableColumns}
+              />
           ))}
         </tbody>
       </table>

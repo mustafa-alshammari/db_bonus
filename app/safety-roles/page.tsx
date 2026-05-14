@@ -1,6 +1,7 @@
-import { getSafetyRoles, addSafetyRole, deleteSafetyRole, getTableMetadata } from './actions';
+import { getSafetyRoles, addSafetyRole, deleteSafetyRole, getTableMetadata, updateSafety_Roles } from './actions';
 import Search from '@/components/Search';
 import AddEntry from '@/components/AddEntry';
+import ModifyEntry from '@/components/ModifyEntry';
 
 export default async function SafetyRolesScreen({ searchParams }: any) {
   const params = await searchParams;
@@ -31,6 +32,7 @@ export default async function SafetyRolesScreen({ searchParams }: any) {
                 <form action={deleteSafetyRole.bind(null, item.TEAM_ID, item.ROLE)}>
                    <button type="submit" className="bg-red-500 text-white px-2 py-1 text-sm rounded hover:bg-red-600">Delete</button>
                 </form>
+                <ModifyEntry columns={tableColumns} rowData={item} updateAction={updateSafety_Roles} />
               </td>
             </tr>
           ))}

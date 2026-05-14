@@ -1,6 +1,7 @@
-import { getPhoneNumbers, addPhoneNumber, deletePhoneNumber, getTableMetadata } from './actions';
+import { getPhoneNumbers, addPhoneNumber, deletePhoneNumber, getTableMetadata, updatePhone_number } from './actions';
 import Search from '@/components/Search';
 import AddEntry from '@/components/AddEntry';
+import ModifyEntry from '@/components/ModifyEntry';
 
 export default async function PhoneNumberScreen({ searchParams }: any) {
   const params = await searchParams;
@@ -31,6 +32,7 @@ export default async function PhoneNumberScreen({ searchParams }: any) {
                 <form action={deletePhoneNumber.bind(null, item.SSN, item.PHONE_NUMBER)}>
                    <button type="submit" className="bg-red-500 text-white px-2 py-1 text-sm rounded hover:bg-red-600">Delete</button>
                 </form>
+                <ModifyEntry columns={tableColumns} rowData={item} updateAction={updatePhone_number} />
               </td>
             </tr>
           ))}

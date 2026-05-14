@@ -1,6 +1,7 @@
-import { getAquatic, addAquatic, deleteAquatic, getTableMetadata } from './actions';
+import { getAquatic, addAquatic, deleteAquatic, getTableMetadata, updateAquatic } from './actions';
 import Search from '@/components/Search';
 import AddEntry from '@/components/AddEntry';
+import ModifyEntry from '@/components/ModifyEntry';
 
 export default async function AquaticScreen({ searchParams }: any) {
   const params = await searchParams;
@@ -31,6 +32,7 @@ export default async function AquaticScreen({ searchParams }: any) {
                 <form action={deleteAquatic.bind(null, item.ANIMAL_ID)}>
                    <button type="submit" className="bg-red-500 text-white px-2 py-1 text-sm rounded hover:bg-red-600">Delete</button>
                 </form>
+                <ModifyEntry columns={tableColumns} rowData={item} updateAction={updateAquatic} />
               </td>
             </tr>
           ))}

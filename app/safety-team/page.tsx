@@ -1,6 +1,7 @@
-import { getSafetyTeams, addSafetyTeam, deleteSafetyTeam, getTableMetadata } from './actions';
+import { getSafetyTeams, addSafetyTeam, deleteSafetyTeam, getTableMetadata, updateSafety_team } from './actions';
 import Search from '@/components/Search';
 import AddEntry from '@/components/AddEntry';
+import ModifyEntry from '@/components/ModifyEntry';
 
 export default async function SafetyTeamScreen({ searchParams }: any) {
   const params = await searchParams;
@@ -31,6 +32,7 @@ export default async function SafetyTeamScreen({ searchParams }: any) {
                 <form action={deleteSafetyTeam.bind(null, item.TEAM_ID)}>
                    <button type="submit" className="bg-red-500 text-white px-2 py-1 text-sm rounded hover:bg-red-600">Delete</button>
                 </form>
+                <ModifyEntry columns={tableColumns} rowData={item} updateAction={updateSafety_team} />
               </td>
             </tr>
           ))}

@@ -29,6 +29,37 @@ export async function addInhabit(formData: FormData) {
   revalidatePath('/inhabit');
 }
 
+export async function updateInhabit(modifiedData: FormData)
+{
+  const sql = 
+`
+    UPDATE Inhabit
+    SET Population_size=:1,
+	      last_check_up=TO_DATE(:2, 'YYYY-MM-DD')
+    WHERE Animal_ID=:3 AND Camp_ID=:4
+  `
+
+  const getVal = (key: string) => {
+    const val = modifiedData.get(key);
+    return val === '' ? null : val;
+  };
+
+  const binds = [ 
+    getVal('POPULATION_SIZE'),
+    getVal('LAST_CHECK_UP'),
+    getVal('ANIMAL_ID'),
+    getVal('CAMP_ID')
+  ];
+
+  try {
+    await executeDML(sql, binds);
+    revalidatePath('/inhabit');
+  } catch (error) {
+    console.error("Database Update Error:", error);
+    throw new Error("Failed to update database");
+  }
+}
+
 export async function deleteInhabit(campId: string, animalId: string) {
   const sql = `DELETE FROM Inhabit WHERE Camp_ID = :1 AND Animal_ID = :2`;
   await executeDML(sql, [campId, animalId]);

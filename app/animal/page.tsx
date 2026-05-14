@@ -1,6 +1,7 @@
-import { getAnimals, addAnimal, deleteAnimal, getTableMetadata } from './actions';
+import { getAnimals, addAnimal, deleteAnimal, getTableMetadata, updateAnimal } from './actions';
 import Search from '@/components/Search';
 import AddEntry from '@/components/AddEntry';
+import ModifyEntry from '@/components/ModifyEntry';
 
 export default async function AnimalScreen({ searchParams }: any) {
   const params = await searchParams;
@@ -30,6 +31,7 @@ export default async function AnimalScreen({ searchParams }: any) {
                 <form action={deleteAnimal.bind(null, anim.ANIMAL_ID)}>
                    <button type="submit" className="bg-red-500 text-white px-2 py-1 text-sm rounded">Delete</button>
                 </form>
+                <ModifyEntry columns={animalColumns} rowData={anim} updateAction={updateAnimal} />
               </td>
             </tr>
           ))}

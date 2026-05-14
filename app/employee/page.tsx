@@ -1,20 +1,23 @@
-import AddEmployee from '@/components/AddEntry';
-import { getEmployees, addEmployee, deleteEmployee, getTableMetadata } from './actions';
+import { getEmployees, addEmployee, deleteEmployee, getTableMetadata, updateEmployee } from './actions';
 import Search from '@/components/Search';
 import AddEntry from '@/components/AddEntry';
+import SearchSSN from '@/components/SearchSSN';
+import ModifyEntry from '@/components/ModifyEntry';
 
 export default async function EmployeeScreen({ searchParams }: any) {
   const params = await searchParams;
   const search = params.search || ''; 
-  const employees = await getEmployees(search);
+  const search_ssn = params.search_ssn || '';
+  const employees = await getEmployees(search, search_ssn);
 
-  const employeeTableColumns = await getTableMetadata('Employee')
+  const employeeTableColumns = await getTableMetadata('Employee');
 
   return (
     <div className="p-8 bg-gray-800">
       <h1 className="text-2xl font-bold mb-4">Employee Management</h1>
 
       <Search defaultSearch='' />
+      <SearchSSN defaultSearch='' />
 
       <AddEntry tableName='Employee' columns={employeeTableColumns} action={addEmployee} />
 
@@ -43,6 +46,7 @@ export default async function EmployeeScreen({ searchParams }: any) {
                 <form action={deleteEmployee.bind(null, emp.SSN)}>
                    <button type="submit" className="bg-red-500 text-white px-2 py-1 text-sm">Delete</button>
                 </form>
+                <ModifyEntry updateAction={updateEmployee} columns={employeeTableColumns} rowData={emp} /> 
               </td>
             </tr>
           ))}

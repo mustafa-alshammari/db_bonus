@@ -1,6 +1,7 @@
-import { getProjects, addProject, deleteProject, getTableMetadata } from './actions';
+import { getProjects, addProject, deleteProject, getTableMetadata, updateProjects } from './actions';
 import Search from '@/components/Search';
 import AddEntry from '@/components/AddEntry';
+import ModifyEntry from '@/components/ModifyEntry';
 
 export default async function ProjectsScreen({ searchParams }: any) {
   const params = await searchParams;
@@ -41,6 +42,7 @@ export default async function ProjectsScreen({ searchParams }: any) {
                 <form action={deleteProject.bind(null, proj.PROJECT_ID)}>
                    <button type="submit" className="bg-red-500 text-white px-2 py-1 text-sm rounded hover:bg-red-600">Delete</button>
                 </form>
+                <ModifyEntry columns={projectTableColumns} rowData={proj} updateAction={updateProjects} />
               </td>
             </tr>
           ))}

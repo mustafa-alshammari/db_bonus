@@ -21,7 +21,35 @@ export async function addEmployeeTeam(formData: FormData) {
   revalidatePath('/employee-team');
 }
 
-// Notice it takes TWO parameters for the composite key
+export async function updateEmployee_part_of_team(modifiedData: FormData)
+{
+  const sql = 
+  `
+    UPDATE Employee_part_of_team
+    SET Assigned_Manager=:1
+    WHERE Team_ID=:2 AND SSN=:3     
+  `
+
+  const getVal = (key: string) => {
+    const val = modifiedData.get(key);
+    return val === '' ? null : val;
+  };
+
+  const binds = [ 
+    getVal('ASSIGNED_MANAGER'),
+    getVal('TEAM_ID'),
+    getVal('SSN')
+  ];
+
+  try {
+    await executeDML(sql, binds);
+    revalidatePath('/employee-team');
+  } catch (error) {
+    console.error("Database Update Error:", error);
+    throw new Error("Failed to update database");
+  }
+}
+
 export async function deleteEmployeeTeam(teamId: string, ssn: string) {
   const sql = `DELETE FROM Employee_part_of_team WHERE Team_ID = :1 AND SSN = :2`;
   await executeDML(sql, [teamId, ssn]);

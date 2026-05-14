@@ -21,6 +21,34 @@ export async function addPhoneNumber(formData: FormData) {
   revalidatePath('/phone-number');
 }
 
+export async function updatePhone_number(modifiedData: FormData)
+{
+  const sql = 
+  `
+    UPDATE Phone_number
+    SET phone_number=:1
+    WHERE SSN=:2
+  `
+
+  const getVal = (key: string) => {
+    const val = modifiedData.get(key);
+    return val === '' ? null : val;
+  };
+
+  const binds = [ 
+    getVal('PHONE_NUMBER'),
+    getVal('SSN')
+  ];
+
+  try {
+    await executeDML(sql, binds);
+    revalidatePath('/phone-number');
+  } catch (error) {
+    console.error("Database Update Error:", error);
+    throw new Error("Failed to update database");
+  }
+}
+
 export async function deletePhoneNumber(ssn: string, phone: string) {
   const sql = `DELETE FROM Phone_Number WHERE SSN = :1 AND Phone_number = :2`;
   await executeDML(sql, [ssn, phone]);

@@ -21,6 +21,34 @@ export async function addSafetyTeam(formData: FormData) {
   revalidatePath('/safety-team');
 }
 
+export async function updateSafety_team(modifiedData: FormData)
+{
+  const sql = 
+  `
+    UPDATE Safety_team
+    SET Location=:1
+    WHERE Team_ID=:2
+  `
+
+  const getVal = (key: string) => {
+    const val = modifiedData.get(key);
+    return val === '' ? null : val;
+  };
+
+  const binds = [ 
+    getVal('LOCATION'),
+    getVal('TEAM_ID'),
+  ];
+
+  try {
+    await executeDML(sql, binds);
+    revalidatePath('/safety-team');
+  } catch (error) {
+    console.error("Database Update Error:", error);
+    throw new Error("Failed to update database");
+  }
+}
+
 export async function deleteSafetyTeam(teamId: string) {
   const sql = `DELETE FROM Safety_team WHERE Team_ID = :1`;
   await executeDML(sql, [teamId]);
