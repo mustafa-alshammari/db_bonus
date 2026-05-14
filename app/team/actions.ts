@@ -42,6 +42,24 @@ export async function updateTeamEmail(Team_ID: string, newEmail: number) {
   revalidatePath('/team');
 }
 
+export async function fetchSubclassData(Team_ID: string, Team_Type: string)
+{
+
+  if (Team_Type == 'Safety')
+  {
+    const sql = `
+      SELECT Location FROM Safety_team
+      WHERE Team_ID = :1
+    `
+  
+    const result = await executeDML(sql, [Team_ID]);
+
+    return result && result.length > 0 ? result[0] : null;
+  }
+
+  return null;
+}
+
 export async function getTableMetadata(tableName: string): Promise<ColumnMeta[]> {
   const sql = `
     SELECT column_name, data_type, nullable 

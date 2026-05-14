@@ -1,6 +1,7 @@
 import { addTeam, deleteTeam, getTableMetadata, getTeams } from './actions';
 import Search from '@/components/Search';
 import AddEntry from '@/components/AddEntry';
+import TeamRow from '@/components/TeamRow';
 
 export default async function TeamScreen({ searchParams }: any) {
   const params = await searchParams;
@@ -29,18 +30,11 @@ export default async function TeamScreen({ searchParams }: any) {
         </thead>
         <tbody>
           {teams.map((team: any) => (
-            <tr key={team.TEAM_ID} className="border-b">
-              <td className="p-2">{team.TEAM_ID}</td>
-              <td className="p-2">{team.NAME}</td>
-              <td className="p-2">{team.TEAM_TYPE}</td>
-              <td className="p-2">{team.MEMBER_COUNT}</td>
-              <td className="p-2">{team.EMAIL}</td>
-              <td className="p-2 flex gap-2">
-                <form action={deleteTeam.bind(null, team.TEAM_ID)}>
-                   <button type="submit" className="bg-red-500 text-white px-2 py-1 text-sm">Delete</button>
-                </form>
-              </td>
-            </tr>
+            <TeamRow
+              key={team.TEAM_ID}
+              team={team}
+              deleteAction={deleteTeam.bind(null, team.TEAM_ID)}
+            />
           ))}
         </tbody>
       </table>
